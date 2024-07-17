@@ -1,6 +1,8 @@
 package main
 
-import "golang.org/x/crypto/bcrypt"
+import (
+	"golang.org/x/crypto/bcrypt"
+)
 
 type Account struct {
 	ID                int64  `json:"id"`

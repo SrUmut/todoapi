@@ -10,11 +10,19 @@ make run
 * build and run the project
 
 
+### After login get the JWT and put it in the header with key "jwt-token"
+
+```
+{
+    "jwt-token": [token]
+}
+```
+
 # Actions 
 
 ## /account
 
-### GET: returns all accounts
+### GET: returns all accounts (this is kind of for admins)
 
 ### POST: creates a new account
 ```
@@ -29,7 +37,7 @@ make run
 ## /account/{id}
 example /account/3
 
-### GET: return all todos belonging to account with specified id
+### GET: return all todos belonging to account with specified id if JWT is valid
 
 ### POST: modify (add, change status(done/ not done), delete) To Dos
 ```
@@ -62,7 +70,18 @@ example /account/3
 }
 ```
 
-### DELETE: delete the account if password is correct
+### DELETE: delete the account if password is correct and JWT is valid
+```
+// example request body (json):
+{
+    "password": "supersecretpassord"
+}
+```
+
+## /login/{id}
+example /login/15
+
+### POST: get the password compare, create and give JWT
 ```
 // example request body (json):
 {

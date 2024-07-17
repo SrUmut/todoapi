@@ -214,7 +214,7 @@ func (s *PostgresStore) getLastIDFromDB(id *int64) error {
 	if !lastIDNull.Valid {
 		*id = 0
 	} else {
-		*id = lastIDNull.Int64
+		*id = lastIDNull.Int64 + 1
 	}
 	return nil
 }
